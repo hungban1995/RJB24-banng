@@ -1,25 +1,74 @@
 // import logo from './logo.svg';
-import './App.css';
-import img from './images/avat.png';
+import "./App.css";
+
+// const infoU = 
+//   { fistName: " A",
+//   lastName:"Nguyen van",
+//  age: 28,
+//  nickName: "anh A",
+//  avatarUrl:"/images/avat.png",
+//  profile:"https://www.facebook.com/"
+// }
+const infoUser = [
+  { fistName: " A",
+  lastName:"Nguyen van",
+ age: 28,
+ nickName: "anh A",
+ avatarUrl:"/images/avat.png",
+ profile:"https://www.facebook.com/"
+},
+{ fistName: " B",
+lastName:"Nguyen Thi",
+age: 28,
+nickName: "chi B",
+avatarUrl:"/images/avat.png",
+profile:"https://www.facebook.com/"
+},
+{ fistName: " C",
+lastName:"Nguyen van",
+age: 28,
+nickName: "anh C",
+avatarUrl:"/images/avat.png",
+profile:"https://www.facebook.com/"
+}
+
+];
+const textInfor="Lorem Ipsum: Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lore"
+
+
+function render(a) {
+  return(
+  <div className="card">
+    <h4>Name: {a.lastName} {a.fistName}</h4>
+    <img
+          src={a.avatarUrl}
+          width="100%"
+          
+          alt="avatar"
+        ></img>
+    <p>Nick name: {a.nickName} </p>
+    <p>Age:{a.age}</p>
+    <p>{textInfor}</p>
+    <a className="btn btn-primary" href={a.profile}>More..{a.nickName} </a>
+  </div>
+  )
+}
+
+
+
 function App() {
   return (
-   <>
-   <div className='container'>
+    <>
+   <div className="container-fluid">
+    <div className="row">
+    <div className="col">{infoUser.map((u)=> render(u)) }</div>
 
- 
-        <div className='info'>
-        <img src={img} width={300} height={300}></img>
-        <h5>Nguyen Hung ban</h5>
-        <p>
-        
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-        </p>
-        <button>
-          more..read
-        </button>
-        </div>
-        </div>
-   </>
+    
+     <div className="col">{infoUser.map((u)=> render(u)) }</div>
+    </div>
+    
+      </div>    
+    </>
   );
 }
 
