@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.Ui01{
+
+  border: 1px solid #ccc;
+ width: 600px;
+ height:300px;
+ margin: 10px;
+ 
+}
+ul{
+ 
+  list-style:none;
+}
+.img-Ui01{
+  float:left;
+  height: 100%;
+
+}
+.checked {
+  color: orange;
+}
