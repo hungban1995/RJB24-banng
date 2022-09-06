@@ -10,7 +10,7 @@ export default function SocialBlock(props) {
         float: "left",
         display: "flex",
         padding: "10px",
-        margin: "20px"
+        margin: "20px",
       }}
     >
       <i

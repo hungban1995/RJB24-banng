@@ -1,7 +1,5 @@
 import React from "react";
 
-
-
 export default function ChartBar1(props) {
   return (
     <div className="col-6 mb-3">

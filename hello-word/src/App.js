@@ -6,6 +6,7 @@ import img3 from "./Home-work/Sesion01/Images/3.jpg";
 
 import ChartBar1 from "./Home-work/Sesion01/ChartBar1";
 import SocialBlock from "./Home-work/Sesion01/SocialBlock";
+import ChartColumn from "./Home-work/Sesion01/ChartColumn";
 
 function Ui01() {
   return (
@@ -17,7 +18,6 @@ function Ui01() {
         <li>Bags</li>
         <li>Kid's Fashion</li>
         <li>Mens </li>
-       
       </ul>
     </div>
   );
@@ -132,13 +132,33 @@ const social = [
     unit: "Pins",
   },
 ];
+
+const chartColumn = [
+  {
+    text: "TODAY'S VISITORS",
+    total: 24599,
+  },
+  {
+    text: "YESTERDAY'S VISITORS",
+    total: 15699,
+  },
+  {
+    text: "TOTAL DOWLOADS",
+    total: 124599,
+  },
+  {
+    text: "CURRENT INCOME",
+    total: "$54599",
+  },
+];
+
 function App() {
   return (
     <>
       {/* <Ui01 />
       <Ui02 />
-      <Ui03 />
-      {chartBar.map((chart, index) => (
+      <Ui03 /> */}
+      {/* {chartBar.map((chart, index) => (
         <ChartBar1
           key={index}
           text={chart.text}
@@ -147,7 +167,7 @@ function App() {
           percentage={chart.percentage}
         />
       ))} */}
-{social.map((social,index) =>(
+      {/* {social.map((social,index) =>(
   <SocialBlock
    key={index}
    text={social.text}
@@ -157,8 +177,12 @@ function App() {
    unit={social.unit}
   
   />
-))}
-
+))} */}
+      <div className="col card-deck">
+        {chartColumn.map((col, index) => (
+          <ChartColumn key={index} text={col.text} total={col.total} />
+        ))}
+      </div>
     </>
   );
 }
