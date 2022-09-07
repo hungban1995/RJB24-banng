@@ -25,7 +25,6 @@ export default function ChartBar1(props) {
             width: props.percentage + "%",
           }}
         >
-          <span>{props.percentage}%</span>
         </div>
       </div>
     </div>

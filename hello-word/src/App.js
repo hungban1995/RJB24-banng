@@ -4,9 +4,12 @@ import img1 from "./Home-work/Sesion01/Images/1.jpg";
 import img2 from "./Home-work/Sesion01/Images/2.jpg";
 import img3 from "./Home-work/Sesion01/Images/3.jpg";
 
+
 import ChartBar1 from "./Home-work/Sesion01/ChartBar1";
 import SocialBlock from "./Home-work/Sesion01/SocialBlock";
-import ChartColumn from "./Home-work/Sesion01/ChartColumn";
+import ChartColumn from "./Home-work/Sesion01/ChartColumnFunction/ChartColumn";
+import Profile from "./Home-work/Sesion01/Profile";
+import Person from "./Home-work/Sesion01/PersonFunction/Person";
 
 function Ui01() {
   return (
@@ -102,6 +105,39 @@ const chartBar = [
   },
 ];
 
+const proFile = [
+  {
+    text: "HTML",
+    icon: "fa-brands fa-html5",
+    colors: "Crimson",
+    percentage: 20,
+  },
+  {
+    text: "CSS",
+    icon: "fa-brands fa-css3-alt",
+    colors: "DodgerBlue",
+    percentage: 50,
+  },
+  {
+    text: "PHP",
+    icon: "fa-brands fa-php",
+    colors: "LimeGreen",
+    percentage: 70,
+  },
+  {
+    text: "Java",
+    icon: "fa-brands fa-java",
+    colors: "Khaki",
+    percentage: 30,
+  },
+  {
+    text: ".Net",
+    icon: "fa-brands fa-battle-net",
+    colors: "DarkViolet",
+    percentage: 45,
+  },
+];
+
 const social = [
   {
     text: "Facebook",
@@ -152,12 +188,52 @@ const chartColumn = [
   },
 ];
 
+const personPr = [
+  {
+images:"./Home-work/Sesion01/Images/Persion/1.PNG"  ,
+    name: "ROBORT PATTISON",
+    job: "Developing",
+    email: "robot123@gmail.com",
+    phone: "8665545541",
+    color1: "red",
+    colors: "orange",
+  },
+  {
+    image:"./Home-work/Sesion01/Images/Persion/2.PNG",
+    name: "JAMES SMITH",
+    job: "Designer",
+    email: "Smith123@gmail.com",
+    phone: "2316216254",
+    color1: "blue",
+    colors: "Crimson",
+  },
+  {
+    image:  "./Home-work/Sesion01/Images/Persion/3.PNG",
+    name: "TOM HANKS",
+    job: "Ui Designer",
+    email: "peter1@gmail.com",
+    phone: "5451213645",
+    color1: "green",
+    colors: "LimeGreen",
+  },
+  {
+    image: "./Home-work/Sesion01/Images/Persion/4.PNG",
+    name: "SIVERTER STALING",
+    job: "Testing",
+    email: "point123@gmail.com",
+    phone: "2341691545",
+    color1: "SlateBlue",
+    colors: "yellow",
+  },
+];
+
 function App() {
   return (
     <>
       {/* <Ui01 />
       <Ui02 />
       <Ui03 /> */}
+      {/* Bt1 */}
       {/* {chartBar.map((chart, index) => (
         <ChartBar1
           key={index}
@@ -167,6 +243,16 @@ function App() {
           percentage={chart.percentage}
         />
       ))} */}
+      {/* Bt2 */}
+      {/* {proFile.map((file, index) => (
+        <Profile key={index}
+         text={file.text}
+         iconName={file.icon}
+         color={file.colors}
+         percentage={file.percentage}
+         />
+      ))} */}
+      {/* Bt3 */}
       {/* {social.map((social,index) =>(
   <SocialBlock
    key={index}
@@ -178,9 +264,26 @@ function App() {
   
   />
 ))} */}
-      <div className="col card-deck">
+      {/* Bt4 */}
+      {/* <div className="col card-deck">
         {chartColumn.map((col, index) => (
           <ChartColumn key={index} text={col.text} total={col.total} />
+        ))}
+      </div> */}
+
+      <div className="col card-deck" style={{textAlign: 'center'}}>
+        {personPr.map((person, index) => (
+          <Person key={index}
+          image={person.image}
+          name={person.name}
+          job={person.job}
+          color1={person.color1}
+          email={person.email}
+          colors={person.colors}
+          phone={person.phone}
+            
+            
+            />
         ))}
       </div>
     </>

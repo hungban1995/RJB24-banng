@@ -13,8 +13,8 @@ const percenTages = [20, 45, 30, 80, 75];
 
 export default function ChartColumn(props) {
   return (
-    <div className="card">
-      <div style={{ textAlign: "center" }}>
+    <div className="card" style={{ textAlign: "center" }}>
+      <div >
         <p>{props.text}</p>
         <h4>{props.total}</h4>
         <hr />
