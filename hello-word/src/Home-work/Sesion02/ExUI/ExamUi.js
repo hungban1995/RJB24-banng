@@ -14,15 +14,3 @@ export default function ExamUi1() {
     </div>
   )
 }
-
-
-export  function ExamUi2() {
-  return (
-    <div>ExamUi</div>
-  )
-}
-export  function ExamUi3() {
-    return (
-      <div>ExamUi</div>
-    )
-  }
