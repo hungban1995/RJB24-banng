@@ -14,7 +14,7 @@ export default function Person(props) {
   return (
     <div className="card">
       <div className="card-body">
-        <img src={props.images} alt="person" />
+      <img src={props.images} alt="person" />
         <h4>{props.name}</h4>
         <p>{props.job}</p>
         <div>

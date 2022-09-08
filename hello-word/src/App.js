@@ -1,15 +1,19 @@
-// import logo from './logo.svg';
+import "./Home-work/Sesion01/style.css";
 import "./App.css";
 import img1 from "./Home-work/Sesion01/Images/1.jpg";
 import img2 from "./Home-work/Sesion01/Images/2.jpg";
 import img3 from "./Home-work/Sesion01/Images/3.jpg";
-
+import ps1 from "./Home-work/Sesion01/Images/Person/1.PNG";
+import ps2 from "./Home-work/Sesion01/Images/Person/2.PNG";
+import ps3 from "./Home-work/Sesion01/Images/Person/3.PNG";
+import ps4 from "./Home-work/Sesion01/Images/Person/4.PNG";
 
 import ChartBar1 from "./Home-work/Sesion01/ChartBar1";
 import SocialBlock from "./Home-work/Sesion01/SocialBlock";
 import ChartColumn from "./Home-work/Sesion01/ChartColumnFunction/ChartColumn";
 import Profile from "./Home-work/Sesion01/Profile";
 import Person from "./Home-work/Sesion01/PersonFunction/Person";
+
 
 function Ui01() {
   return (
@@ -190,7 +194,7 @@ const chartColumn = [
 
 const personPr = [
   {
-images:"./Home-work/Sesion01/Images/Persion/1.PNG"  ,
+    images: ps1,
     name: "ROBORT PATTISON",
     job: "Developing",
     email: "robot123@gmail.com",
@@ -199,7 +203,7 @@ images:"./Home-work/Sesion01/Images/Persion/1.PNG"  ,
     colors: "orange",
   },
   {
-    image:"./Home-work/Sesion01/Images/Persion/2.PNG",
+    images: ps2,
     name: "JAMES SMITH",
     job: "Designer",
     email: "Smith123@gmail.com",
@@ -208,7 +212,7 @@ images:"./Home-work/Sesion01/Images/Persion/1.PNG"  ,
     colors: "Crimson",
   },
   {
-    image:  "./Home-work/Sesion01/Images/Persion/3.PNG",
+    images: ps3,
     name: "TOM HANKS",
     job: "Ui Designer",
     email: "peter1@gmail.com",
@@ -217,7 +221,7 @@ images:"./Home-work/Sesion01/Images/Persion/1.PNG"  ,
     colors: "LimeGreen",
   },
   {
-    image: "./Home-work/Sesion01/Images/Persion/4.PNG",
+    images: ps4,
     name: "SIVERTER STALING",
     job: "Testing",
     email: "point123@gmail.com",
@@ -226,15 +230,16 @@ images:"./Home-work/Sesion01/Images/Persion/1.PNG"  ,
     colors: "yellow",
   },
 ];
-
+  
 function App() {
+  
   return (
     <>
-      {/* <Ui01 />
+      <Ui01 />
       <Ui02 />
-      <Ui03 /> */}
-      {/* Bt1 */}
-      {/* {chartBar.map((chart, index) => (
+      <Ui03 />
+     
+      {chartBar.map((chart, index) => (
         <ChartBar1
           key={index}
           text={chart.text}
@@ -242,51 +247,52 @@ function App() {
           colors={chart.colors}
           percentage={chart.percentage}
         />
-      ))} */}
-      {/* Bt2 */}
-      {/* {proFile.map((file, index) => (
-        <Profile key={index}
-         text={file.text}
-         iconName={file.icon}
-         color={file.colors}
-         percentage={file.percentage}
-         />
-      ))} */}
-      {/* Bt3 */}
-      {/* {social.map((social,index) =>(
-  <SocialBlock
-   key={index}
-   text={social.text}
-   color={social.color}
-   iconName={social.iconName}
-   total={social.total}
-   unit={social.unit}
-  
-  />
-))} */}
-      {/* Bt4 */}
-      {/* <div className="col card-deck">
+      ))}
+     
+      {proFile.map((file, index) => (
+        <Profile
+          key={index}
+          text={file.text}
+          iconName={file.icon}
+          color={file.colors}
+          percentage={file.percentage}
+        />
+      ))}
+      
+      {social.map((social, index) => (
+        <SocialBlock
+          key={index}
+          text={social.text}
+          color={social.color}
+          iconName={social.iconName}
+          total={social.total}
+          unit={social.unit}
+        />
+      ))}
+     
+      <div className="col card-deck">
         {chartColumn.map((col, index) => (
           <ChartColumn key={index} text={col.text} total={col.total} />
         ))}
-      </div> */}
+      </div>
 
-      <div className="col card-deck" style={{textAlign: 'center'}}>
+      <div className="col card-deck mt-3" style={{ textAlign: "center" }}>
         {personPr.map((person, index) => (
-          <Person key={index}
-          image={person.image}
-          name={person.name}
-          job={person.job}
-          color1={person.color1}
-          email={person.email}
-          colors={person.colors}
-          phone={person.phone}
-            
-            
-            />
+          <Person
+            key={index}
+            images={person.images}
+            name={person.name}
+            job={person.job}
+            color1={person.color1}
+            email={person.email}
+            colors={person.colors}
+            phone={person.phone}
+          />
         ))}
       </div>
+
     </>
   );
 }
+
 export default App;
