@@ -9,8 +9,8 @@ function App() {
     <>
     {/* <LikeBtn/>
     <RateBtn/> */}
-    {/* <ImgView/> */}
-    <BtnTab/>
+    <ImgView/>
+    {/* <BtnTab/> */}
     </>
   );
 }

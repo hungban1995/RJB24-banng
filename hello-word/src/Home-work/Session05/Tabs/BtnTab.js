@@ -34,7 +34,7 @@ export default function BtnTab() {
             <li
               key={index}
               onClick={() => setAbout(index)}
-              className={about === index ? "title  tt-click" : "title"}
+              className={about === index ? "title tt-click" : "title"}
             >
               {tab.title}
             </li>

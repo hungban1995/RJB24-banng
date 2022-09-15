@@ -7,20 +7,22 @@ import img5 from "./Images/5.jpg";
 
 export default function ImgView() {
   const images = [img1, img2, img3, img4, img5];
-  const index = 1;
-  const [view, setView] = useState(images[index]);
+ 
+  const [view, setView] = useState(0);
   const nextImg = () => {
-    setView(images[index + 1]);
+  if(view<=images.length){setView(view+1);}
+    
+    
   };
 
   const prevImg = () => {
-    setView(images[index - 1]);
+    setView(view-1)
   };
 
   return (
     <div className="container">
       <img
-        src={view}
+        src={images[view]}
         alt="images"
         style={{ width: "600px", height: "400px" }}
       ></img>
