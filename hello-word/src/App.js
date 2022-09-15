@@ -1,12 +1,16 @@
-import Ex1 from "./Home-work/Sesion03/StateClass/Ex1";
-
-import "./Home-work/Sesion03/StateClass/style.css";
+import LikeBtn from "./Home-work/Session05/LikeButton/LikeBtn";
+import './Home-work/Session05/style.css';
+import RateBtn from "./Home-work/Session05/RateButton/RateBtn";
+import ImgView from "./Home-work/Session05/ImageView/ImgView";
+import BtnTab from "./Home-work/Session05/Tabs/BtnTab";
 
 function App() {
   return (
     <>
-      {" "}
-      <Ex1 />
+    {/* <LikeBtn/>
+    <RateBtn/> */}
+    {/* <ImgView/> */}
+    <BtnTab/>
     </>
   );
 }
