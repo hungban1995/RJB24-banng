@@ -7,16 +7,19 @@ import img5 from "./Images/5.jpg";
 
 export default function ImgView() {
   const images = [img1, img2, img3, img4, img5];
- 
-  const [view, setView] = useState(0);
-  const nextImg = () => {
-  if(view<=images.length){setView(view+1);}
-    
-    
-  };
 
+  const [view, setView] = useState(0);
+
+  const nextImg = () => {
+    console.log(view);
+    if (view < images.length - 1) {
+      setView(view + 1);
+    }
+  };
   const prevImg = () => {
-    setView(view-1)
+    if (view > 0 && view <= images.length) {
+      setView(view - 1);
+    }
   };
 
   return (
@@ -33,9 +36,18 @@ export default function ImgView() {
       <button className="btn btn-primary" onClick={prevImg}>
         Prev
       </button>
-      <div style={{display:'flex'}}>
-        {images.map((i) =><img key={i} src={i} alt="abc"style={{width:"100px", height:"100px"}}></img>)}
+
+      <div style={{ display: "flex" }}>
+        {images.map((i) => (
+          <div key={i} >
+            <img
+              src={i}
+              alt="abc"
+              style={{ width: "100px ", height: "100px" }}
+            />
+          </div>
+        ))}
       </div>
     </div>
   );
-}   
+}

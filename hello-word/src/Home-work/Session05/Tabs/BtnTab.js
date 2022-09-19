@@ -42,7 +42,10 @@ export default function BtnTab() {
         </ul>
         <div>
           {tabs.map((tab, index) => (
-            <span key={index} className={about === index ? "text-content" : "text-hind"}>
+            <span
+              key={index}
+              className={about === index ? "text-content" : "text-hind"}
+            >
               {tab.description}
             </span>
           ))}
