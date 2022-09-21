@@ -1,23 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 import logo from "./Images/logo.svg";
 import images from "./Images/display_shape.svg";
 export default function Form02() {
-  const [inputs, setInputs] = React.useState({
+  const [inputs, setInputs] = useState({
     fistName: "",
     lastName: "",
     phoneNum: "",
     email: "",
     password: "",
     rePassword: "",
-    accept: true,
+    accept: false,
   });
+  const [list, setList] = useState([]);
   const [error, setError] = useState("");
   const handleSubmit = (e) => {
+    setList((prev) => [...prev, inputs]);
     e.preventDefault();
   };
   const handleChange = (e) => {
     e.preventDefault();
+
     switch (true) {
       case e.target.name === "fistName":
         setInputs((values) => ({ ...values, [e.target.name]: e.target.value }));
@@ -36,25 +39,25 @@ export default function Form02() {
 
         break;
       case e.target.name === "password":
+        
         setInputs((values) => ({ ...values, [e.target.name]: e.target.value }));
 
         break;
       case e.target.name === "rePassword":
-      setInputs((values) => ({ ...values, [e.target.name]: e.target.value }));
-        break;
-      case e.target.type === "checkbox":
-        setInputs((values) => ({
-          ...values,
-          [e.target.name]: e.target.value,
-        }));
+        setInputs((values) => ({ ...values, [e.target.name]: e.target.value }));
         break;
       default:
     }
-    // if (inputs.rePassword === inputs.password)
-    //   setError("ok")
-    // else setError(" Password not the same!");
-    console.log(inputs);
+
+    if (e.target.type === "checkbox") {
+      setInputs((values) => ({ ...values, [e.target.name]: e.target.checked }));
+    }
   };
+  useEffect(() => {
+    if (inputs.password !== inputs.rePassword) {
+      setError("password must like");
+    } else setError("");
+  }, [inputs]);
 
   return (
     <div className="container">
@@ -134,7 +137,7 @@ export default function Form02() {
               type="checkbox"
               name="accept"
               value={inputs.accept}
-              defaultChecked={!inputs.accept}
+              checked={inputs.accept}
               onChange={handleChange}
             />
             <label> Yes, I want to receive Lottery Display email</label>
@@ -144,7 +147,7 @@ export default function Form02() {
               type="checkbox"
               name="accept"
               value={inputs.accept}
-              defaultChecked={!inputs.accept}
+              checked={inputs.accept}
               onChange={handleChange}
             />
             <label>
@@ -162,6 +165,7 @@ export default function Form02() {
           </form>
         </div>
       </div>
+      {/* {list.map()} */}
     </div>
   );
 }
