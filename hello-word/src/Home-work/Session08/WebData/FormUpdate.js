@@ -1,24 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 export default function FormUpdate() {
+  const { id } = useParams();
+  // const [user, setUser] = useState({});
 
-
-
-    const { id } = useParams()
-    // const [user, setUser] = useState({});
-
-
-  const [customer, setCustomer] = useState([
-    {
-      name: "",
-      postCode: "",
-      address: "",
-      dob: "",
-      email: "",
-      gender: "",
-      phone: "",
-    },
-  ]);
+  const [customer, setCustomer] = useState([]);
 
   useEffect(() => {
     fetch(`https://6329f4ec713d41bc8e67cc92.mockapi.io/api/v1/customer/${id}`, {
@@ -26,7 +12,7 @@ export default function FormUpdate() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
+        console.log(data);
         setCustomer(data);
       })
       .catch((error) => {
@@ -93,7 +79,6 @@ export default function FormUpdate() {
     }
   };
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -113,7 +98,6 @@ export default function FormUpdate() {
       .catch((error) => {
         console.log("error", error);
       });
-
   };
   return (
     <div className="col-3">
