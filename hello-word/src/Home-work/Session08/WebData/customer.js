@@ -21,7 +21,7 @@ export default function Customer() {
   };
   useEffect(() => {
     onSubmitAsync();
-  }, []);
+  }, [customer]);
 
   const handleDelete = (id) => {
     fetch(`https://6329f4ec713d41bc8e67cc92.mockapi.io/api/v1/customer/${id}` ,{
