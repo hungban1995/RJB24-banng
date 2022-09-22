@@ -1,9 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+
 import { useNavigate } from "react-router-dom";
 export default function Customer() {
-  const navigate= useNavigate()
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const onSubmitAsync = async () => {
     try {
@@ -16,17 +16,29 @@ export default function Customer() {
       });
       const json = await response.json();
       setProducts(json);
-      console.log(json);
+   
     } catch (error) {
       console.log(error);
     }
   };
   useEffect(() => {
     onSubmitAsync();
-  }, []);
-  const handleClick = (e) => {
-    e.preventDefault();
    
+  }, [products]);
+
+  const handleDelete = (id) => {
+    fetch(`https://6329f4ec713d41bc8e67cc92.mockapi.io/api/v1/product/${id}`, {
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+     
+        let listUserNew = products.filter((item) => item.id !== id);
+        products(listUserNew);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
     <div className="container">
@@ -55,7 +67,7 @@ export default function Customer() {
                 <th>{product.price}</th>
                 <th>{product.description}</th>
                 <th>
-                  <button className="btn btn-danger" onClick={handleClick}>
+                  <button className="btn btn-danger"  onClick={() => handleDelete(product.id)}>
                     Delete
                   </button>
                 </th>

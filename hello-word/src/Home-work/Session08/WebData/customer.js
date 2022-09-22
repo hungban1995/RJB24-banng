@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 export default function Customer() {
-  const navigate= useNavigate()
+  const navigate = useNavigate();
   const [customer, setCustomer] = useState([]);
   const onSubmitAsync = async () => {
     try {
@@ -21,17 +21,18 @@ export default function Customer() {
   };
   useEffect(() => {
     onSubmitAsync();
+
   }, [customer]);
 
   const handleDelete = (id) => {
-    fetch(`https://6329f4ec713d41bc8e67cc92.mockapi.io/api/v1/customer/${id}` ,{
-      method: 'DELETE',
+    fetch(`https://6329f4ec713d41bc8e67cc92.mockapi.io/api/v1/customer/${id}`, {
+      method: "DELETE",
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
-        let listUserNew = customer.filter((item)=>item.id !== id)
-        customer(listUserNew)
+        console.log(data);
+        let listUserNew = customer.filter((item) => item.id !== id);
+        customer(listUserNew);
       })
       .catch((error) => {
         console.log(error);
@@ -59,7 +60,7 @@ export default function Customer() {
             return (
               <tr key={user.id}>
                 <th>{user.id}</th>
-                <th onClick={()=> navigate(`/${user.id}`)}>{user.name}</th>
+                <th onClick={() => navigate(`/${user.id}`)}>{user.name}</th>
                 <th>{user.createdAt}</th>
                 <th>{user.postCode}</th>
                 <th>{user.address}</th>
@@ -68,8 +69,17 @@ export default function Customer() {
                 <th>{user.gender}</th>
                 <th>{user.phone}</th>
                 <th>
-                  <button className="btn btn-primary" onClick={()=> navigate(`/update/${user.id}`)}> Update</button>
-                  <button className="btn btn-danger" onClick={() => handleDelete(user.id)}>
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => navigate(`/update/${user.id}`)}
+                  >
+                    {" "}
+                    Update
+                  </button>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => handleDelete(user.id)}
+                  >
                     Delete
                   </button>
                 </th>
