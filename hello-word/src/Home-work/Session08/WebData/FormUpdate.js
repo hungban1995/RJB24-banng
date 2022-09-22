@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+export default function FormUpdate() {
 
-export default function Form() {
+
+
+    const { id } = useParams()
+    // const [user, setUser] = useState({});
+
+
   const [customer, setCustomer] = useState([
     {
       name: "",
@@ -12,7 +19,20 @@ export default function Form() {
       phone: "",
     },
   ]);
-  // const [customers, setCustomers] = useState([]);
+
+  useEffect(() => {
+    fetch(`https://6329f4ec713d41bc8e67cc92.mockapi.io/api/v1/customer/${id}`, {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+        setCustomer(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
   const handleChange = (e) => {
     e.preventDefault();
     switch (true) {
@@ -72,17 +92,15 @@ export default function Form() {
       default:
     }
   };
-  useEffect(() => {
-    // console.log(customers);
-  }, []);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // setCustomers((prev) => [...prev, customer]);
+
     let data = customer;
 
-    fetch(`https://6329f4ec713d41bc8e67cc92.mockapi.io/api/v1/customer`, {
-      method: "POST",
+    fetch(`https://6329f4ec713d41bc8e67cc92.mockapi.io/api/v1/customer/${id}`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
@@ -135,7 +153,7 @@ export default function Form() {
         <label>Day of birth</label>
         <input
           className="form-control"
-          type="date"
+          type="text"
           name="dob"
           value={customer.dob}
           onChange={handleChange}

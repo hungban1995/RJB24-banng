@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 export default function Customer() {
   const navigate= useNavigate()
   const [customer, setCustomer] = useState([]);
@@ -38,7 +38,7 @@ export default function Customer() {
       });
   };
   return (
-    <div className="container">
+    <div>
       <table className="table table-dark table-striped">
         <thead>
           <tr>
@@ -68,6 +68,7 @@ export default function Customer() {
                 <th>{user.gender}</th>
                 <th>{user.phone}</th>
                 <th>
+                  <button className="btn btn-primary" onClick={()=> navigate(`/update/${user.id}`)}> Update</button>
                   <button className="btn btn-danger" onClick={() => handleDelete(user.id)}>
                     Delete
                   </button>

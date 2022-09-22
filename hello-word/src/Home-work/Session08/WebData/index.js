@@ -3,7 +3,9 @@ import React, { useState } from "react";
 import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
 import Customer from "./customer";
 import Detail from "./Detail";
+import DetailProduct from "./DetailProduct";
 import Form from "./form";
+import FormUpdate from "./FormUpdate";
 
 import Home from "./home";
 import Product from "./product";
@@ -27,12 +29,12 @@ export default function Index() {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/product">
-                product
+                Product
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/form">
-                Reg Form
+                RegisterForm
               </Link>
             </li>
           </ul>
@@ -42,6 +44,9 @@ export default function Index() {
           <Route path="/customer" element={<Customer />}></Route>
           <Route path="/product" element={<Product />}></Route>
           <Route path="/:id" element={<Detail/>}></Route>
+          <Route path="/product/:id" element={<DetailProduct/>}></Route>
+
+          <Route path="/update/:id" element={<FormUpdate  />}></Route>
           <Route path="/form" element={<Form  />}></Route>
           <Route
             path="*"

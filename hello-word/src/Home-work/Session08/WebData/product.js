@@ -1,7 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 export default function Customer() {
+  const navigate= useNavigate()
   const [products, setProducts] = useState([]);
   const onSubmitAsync = async () => {
     try {
@@ -22,11 +24,10 @@ export default function Customer() {
   useEffect(() => {
     onSubmitAsync();
   }, []);
-  const handleClick=(e) => {
+  const handleClick = (e) => {
     e.preventDefault();
-        setProducts([]);
-    
-      }
+    setProducts([]);
+  };
   return (
     <div className="container">
       <table className="table table-dark table-striped">
@@ -42,19 +43,21 @@ export default function Customer() {
           </tr>
         </thead>
         <tbody>
-          {products.map((product, index) => {
+          {products.map((product) => {
             return (
-              <tr key={index}>
+              <tr key={product.id}>
                 <th>{product.id}</th>
-                <th>{product.name}</th>
+                <th onClick={() => navigate(`/product/${product.id}`)}>
+                  {product.name}
+                </th>
                 <th>{product.createdAt}</th>
                 <th>{product.color}</th>
                 <th>{product.price}</th>
                 <th>{product.description}</th>
                 <th>
-                <Link className="btn btn-primary" to='/detail'>Detail</Link>
-
-                  <button className="btn btn-danger" onClick={handleClick}>Delete</button>
+                  <button className="btn btn-danger" onClick={handleClick}>
+                    Delete
+                  </button>
                 </th>
               </tr>
             );
