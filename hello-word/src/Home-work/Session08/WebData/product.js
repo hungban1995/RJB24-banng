@@ -26,7 +26,7 @@ export default function Customer() {
   }, []);
   const handleClick = (e) => {
     e.preventDefault();
-    setProducts([]);
+   
   };
   return (
     <div className="container">
